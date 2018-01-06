@@ -1,0 +1,23 @@
+Problem2: Predict Fraudulent Transactions
+Tool: R/Rstudio
+Packages: 
+Data files: train, test
+Vaiables(other than transaction_id): 7 numerical variables, 42 categorical variables.
+Variables have been anonymized.
+
+Data preprocessing:
+Following Steps were followed:
+1. Zero variance variables were removed.
+2. Missing values among categorical variable were put into their separate category.
+3. Missing levels in categorical variables in train & test data sets were mahced, either by deleting or imputing values.
+4. Categorical variables were converted into factors.
+
+Model:
+
+Final results are based on GBM.(Gradient Boosting). As data size was too big to be processed directly, h2o package was used.
+
+Final GBM model used has:
+1. Depth = 6 (found using grid tuning)
+2. 5 fold cross validation
+3. 5000 trees
+4. AUC-ROC as performance metric

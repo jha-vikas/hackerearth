@@ -1,0 +1,36 @@
+Problem1: Predict Annual Returns
+Tool: R/Rstudio
+
+Data files: train, test
+Vaiables(other than transaction_id): 
+portfolio_id 	unique ID
+desk_id 	manager ID (the person handling the portfolio, it can be a team)
+office_id 	place where portfolio is managed
+pf_category 	portfolio category (anonymised)
+start_date 	date when portfolio started
+sold 	currency (amount sold)
+euribor_rate 	euribor lending rate (monthly average)
+currency 	currency in which transaction was made
+libor_rate 	libor lending rate (monthly average)
+country_code 	country where office is
+bought 	currency (price at which portfolio is bought)
+creation_date 	date when portfolio instruments were traded
+indicator_code 	anonymised
+sell_date 	date when portfolio is sold
+type 	type of portfolio
+hedge_value 	if a portfolio got hedged
+status 	anonymised
+Variables have been anonymized.
+
+Data preprocessing:
+Following Steps were followed:
+1.Missing values for each variable was checked.
+2. Country code was removed as it was in line with currency. Desk id was removed as it did not seem to add any new information.
+3. Using base date as 1 April 2004, a series of time based features were generated.
+4. Train data was merged on test data using all the variables. For 2154 portfolio_id(s), it dorectly gave the return in accordance with train file. Where more than one returns were obtained, median was used.
+5. Highly correlated variables were removed.
+6. Libor values were imputed based on other varialbes.
+
+Model:
+
+Conditional inference tree with 5 fold cross validation was used as final model
