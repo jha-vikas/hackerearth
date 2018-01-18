@@ -1,0 +1,1 @@
+These scripts used in Brainwave 2017 Machine learning competitions allowed me to qualify for round 2. Although the performance was not steller, the models were quite robust, as the scores for even the unseen data remained same as on seen test data. However, the final ranking changed from 106 to 95 in leaderboard.
